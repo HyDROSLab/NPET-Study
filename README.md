@@ -1,2 +1,3 @@
 # NPET-Study
-Data used in the NPET study submitted to JHM
+
+This repository hosts analysis data and programming scripts supporting the study "An Efficient Ensemble Technique for Hydrologic Forecasting driven by Quantitative Precipitation Forecasts".
