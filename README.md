@@ -20,6 +20,10 @@ Excessive storage requirements precluded making the complete set of raw files (F
 
 - moveQPEorigin.py - Used to modify the georeference information of each individual GeoTIFF with QPEs using the displacement vectors generated with "MoveQPEFiels.m". This script creates a folder for each angle within the corresponding folder associated with a displacement length in the master folder "QPEperturbations".
 
-### Post-processing
+### EF5 set-up
 
-- 
+- Ellicot_ef5_ctrl_template.txt - Template of EF5 configuration
+
+Setting up EF5 requires additional datasets available at https://github.com/HyDROSLab/EF5-US-Parameters.
+
+
