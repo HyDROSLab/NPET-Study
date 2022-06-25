@@ -35,7 +35,6 @@ for i in range(numworkers):
         t.start()
 
 #Type of perturbation: steady_state or dynamic
-pert_type = 'steady_state'
 disp_length = 25
 
 #Date of starting cycle
@@ -58,11 +57,11 @@ xres = 0.01
 yres = -0.01
 
 #Folder to store ensemble of synthetic QPEs
-experiment_folder = 'QPEperturbations/' + pert_type  + '/disp' + str(disp_length) + 'km/'
+experiment_folder = '../QPEperturbations/disp' + str(disp_length) + 'km/'
 
 #Read in new origins to create synthetic fields
 #latitude,longitude,distance(km),direction angle(degrees)
-perturbation_file = 'QPEperturbations/' + pert_type  + '/origin_round_form_distance_enforced_' + str(disp_length) + 'km.csv'
+perturbation_file = experiment_folder + 'origin_round_form_distance_enforced_' + str(disp_length) + 'km.csv'
 displaced_origins = np.loadtxt(perturbation_file, dtype='float', delimiter=',', skiprows=1)
 
 #Number of origins, which will be used to create an ensemble
@@ -74,7 +73,7 @@ for member in range(0,ensemble_sz,1):
     sp.call('mkdir -p ' + experiment_folder + 'angle_' + str(meanDirection) + '/', shell=True)
 
 #Folder where QPE fields are stored
-qpe_folder = 'baseline_precip/'
+qpe_folder = '../MRMS_20MinQPE/'
 
 #Loop through period
 currentDate = start_date + delta_t
@@ -85,13 +84,15 @@ while currentDate <= end_date:
 		#Set mean direction
 		meanDirection = displaced_origins[member,3]
 		#Make a copy of QPE field: precip.20180712_2350.crest.tif
+		# Original precipitation field covering the hydrological model computational domain
 		#sp.call('cp ' + qpe_folder + 'precip.' + currentDate.strftime("%Y%m%d_%H%M") + '.crest.tif ' + experiment_folder + 'angle_' + str(meanDirection) + '/', shell=True)
+		# Isolated storm precipitation field covering the hydrometeorological domain
 		# iso_mrms.20180527_1920.tif
 		sp.call('cp ' + qpe_folder + 'iso_mrms.' + currentDate.strftime("%Y%m%d_%H%M") + '.tif ' + experiment_folder + 'angle_' + str(meanDirection) + '/precip.' + currentDate.strftime("%Y%m%d_%H%M") + '.crest.tif', shell=True)
 
     		#Move origin of QPE
-		delta_x = origin_lon-displaced_origins[member,1]
-		delta_y = origin_lat-displaced_origins[member,0]
+		delta_x = displaced_origins[member,1]-origin_lon
+		delta_y = displaced_origins[member,0]-origin_lat
 
 		adj_ulx = ulx+delta_x
 		adj_lrx = lrx+delta_x
