@@ -10,7 +10,7 @@ no_rain_maxunitq(no_rain_maxunitq<0) = 0;
 % Adjust max unit Q grid to exclude signal from precip prior to event
 base_max_unitq = base_max_unitq - no_rain_maxunitq; base_max_unitq(base_max_unitq<0) = 0;
 
-mapinfo = geotiffinfo('sample_file.tif');
+mapinfo = geotiffinfo('DrainArea_1km_mrms_grid.tif');
 
 %% Identify FF objects
 % Multi-threshold analysis
