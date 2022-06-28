@@ -53,12 +53,16 @@ n_levels = len(subfolders)
 root_path = "/".join(subfolders[0:n_levels-1])
 
 #Type of perturbation: steady_state or dynamic
-disp_length = 25
+disp_length = 100
+
+# INSTRUCTIONS: For sensitivity analysis run, using perturbed QPEs displaced in 120 directions, look for and uncomment lines under "# Sensitivity Analysis Run: 120 directions". For running simulations using QPEs shifted using C2020 method, look for and uncomment lines under "# C2020 Run".
 
 #Read in new origins to create synthetic fields
 #latitude,longitude,distance(km),direction angle(degrees)
-perturbation_file =  '../QPEperturbations/disp' + str(disp_length) + 'km/origin_round_form_distance_enforced_' + str(disp_length) + 'km.csv'
-#perturbation_file = '../QPEperturbations/disp' + str(disp_length) + 'km/isumethod_5deg_distance_enforced_' + str(disp_length) + 'km.csv'
+# Sensitivity Analysis Run: 120 directions
+#perturbation_file =  '../QPEperturbations/disp' + str(disp_length) + 'km/origin_round_form_distance_enforced_' + str(disp_length) + 'km.csv'
+# C2020 Run
+perturbation_file = '../QPEperturbations/c2020_method_disp' + str(disp_length) + 'km/c2020_45deg_distance_enforced_' + str(disp_length) + 'km.csv'
 displaced_origins = np.loadtxt(perturbation_file, dtype='float', delimiter=',', skiprows=1)
 
 ensemble_sz = np.shape(displaced_origins)[0]
@@ -72,8 +76,10 @@ for i in range(numworkers):
         t.start()
 
 # Root folder
-#experiment_folder = '../EF5/Outputs/isu_method_disp' + str(disp_length) + 'km/'
-experiment_folder = '../EF5/Outputs/disp' + str(disp_length) + 'km/'
+# C2020 Run
+experiment_folder = '../EF5/Outputs/c2020_method_disp' + str(disp_length) + 'km/'
+# Sensitivity Analysis Run: 120 directions
+#experiment_folder = '../EF5/Outputs/disp' + str(disp_length) + 'km/'
 
 # EF5 control template
 ef5_template = '../EF5/Ellicot_ef5_ctrl_template.txt'
@@ -93,8 +99,10 @@ for member in range(0,ensemble_sz,1):
     sp.call('cp ' + ef5_template + ' ' + ctr_file, shell=True)
 
     #Pass string array of filenames and folders
-    qu.put([ctr_file, 'angle_' + str(meanDirection), 'disp' + str(disp_length) + 'km', root_path])
-    #qu.put([ctr_file, 'angle_' + str(meanDirection), 'isu_method_disp' + str(disp_length) + 'km', root_path])
+    # Sensitivity Analysis Run: 120 directions
+    #qu.put([ctr_file, 'angle_' + str(meanDirection), 'disp' + str(disp_length) + 'km', root_path])
+    # C2020 Run
+    qu.put([ctr_file, 'angle_' + str(meanDirection), 'c2020_method_disp' + str(disp_length) + 'km', root_path])
 
 #block until all tasks are done
 qu.join()

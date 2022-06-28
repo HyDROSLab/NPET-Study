@@ -35,7 +35,7 @@ for i in range(numworkers):
         t.start()
 
 #Type of perturbation: steady_state or dynamic
-disp_length = 25
+disp_length = 50
 
 #Date of starting cycle
 start_date = dt.datetime(2018,5,27,19,0,0) 
