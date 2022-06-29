@@ -1,5 +1,5 @@
 % Get georeference information from sample file
-mapinfo = geotiffinfo('DrainArea_1km_mrms_grid.tif');
+mapinfo = geotiffinfo('auxiliary/DrainArea_1km_mrms_grid.tif');
 
 %% Track configuration
 % Spatial parameters

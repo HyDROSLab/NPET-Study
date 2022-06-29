@@ -4,7 +4,7 @@ This repository hosts analysis data and programming scripts supporting the study
 
 NPET stands for Neighboring Pixel Ensemble Technique, a post-processing algorithm that accounts for Precipitation Forecasts location uncertainty. The study focuses on post-processing of hydrologic modeling outputs for simulations of the flash flood event occurred over Ellicott City, MD, USA between 05/27/2018 19:00 and 05/28/2018 03:00 UTC.
 
-## List of datasets
+## Datasets
 
 Excessive storage requirements precluded making the complete set of raw files and pre-computed outputs (FLASH outputs and MRMS v12 QPE files) available. A subset of the files used in the analysis of this study are included:
 
@@ -57,7 +57,20 @@ NOTE: Paths to input, output, parameters and state files in this control file ar
 
 ### Post-processing
 
-- sensitivity_analysis_error_quantification.m - Computes error fields from the sensitivity analysis experiment.
-- npet.m
-- npet2dwdist.m
-- 
+- sensitivity_analysis_error_quantification.m - Computes error fields from the sensitivity analysis experiment. Requires EF5 maximum streamflow maps for the 360 perturbation scenarios.
+
+- NPET_vs_C2020_Ensembles_at_Locations.m
+
+- npet_ensembles_for_perturbed_scenarios.m
+
+- npet_ensembles_for_hrrr_forecasts.m 
+
+- plot_ensemble_time_series.m - Generates plots of ensemble time series for different experiments. 
+
+- Generate_NPET_maps.m
+
+- npet.m - 
+
+- simple_npet2dwdist.m - Generates the bivariate weight field (NPET Neighborhood) for NPET computations. 
+
+- weigh_prctile.m - Auxiliary function to computed weighted percentiles. 
