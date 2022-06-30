@@ -43,7 +43,7 @@ The scripts in this repository can be used to recreate some of the inputs and ou
 
 - **moveQPEorigin.py** - Used to modify the georeference information of each individual GeoTIFF with QPEs (files in MRMS_20MinQPE.tar.gz) using the displacement vectors generated with "MoveQPEFiels.m". This script creates a folder for each angle within the corresponding folder associated with a displacement length in the master folder "QPEperturbations". In the study, this code is used with the isolated storm (hydrometeorological domain in the manuscript).
 
-- **MoveQPEFields_C2020.m** - Similar to "MoveQPEFiels.m" but specifically for implementing the C2020 method used in the study.
+- **MoveQPEFields_C2020.m** - Similar to "MoveQPEFields.m" but specifically for implementing the C2020 method used in the study.
 
 - **moveQPEorigin_c2020_method.py** - Similar to "moveQPEorigin.py" but specifically for implementing the C2020 method used in the study. This requires having available the perturbed QPE scenario for a 100-km displacement length and 321 degrees azimuth displacemente angle.
 
@@ -75,7 +75,7 @@ The following scripts are used with outputs generated with EF5. Maximum unit str
 
 - **NPET_vs_C2020_Ensembles_at_Locations.m** - Generates ensemble data with NPET and the C2020 method for the four specific locations selected in this study.
 
-- **npet_ensembles_for_perturbed_scenarios.m** - Generates ensemble data with NPET with the specifc pertuebed scenario of the OSE (100-km, 321 degrees) for the four specific locations selected in this study.
+- **npet_ensembles_for_perturbed_scenarios.m** - Generates ensemble data with NPET with the specifc perturbed scenario of the OSE (100-km, 321 degrees) for the four specific locations selected in this study.
 
 - **npet_ensembles_for_hrrr_forecasts.m** - Generates ensemble data with NPET for the simulation using HRRR data as input for the four specific locations selected in this study. 
 
