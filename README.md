@@ -59,18 +59,18 @@ NOTE: Paths to input, output, parameters and state files in this control file ar
 
 - sensitivity_analysis_error_quantification.m - Computes error fields from the sensitivity analysis experiment. Requires EF5 maximum streamflow maps for the 360 perturbation scenarios.
 
-- NPET_vs_C2020_Ensembles_at_Locations.m
+- NPET_vs_C2020_Ensembles_at_Locations.m - Generates ensemble data with NPET and the C2020 method for the four specific locations selected in this study.
 
-- npet_ensembles_for_perturbed_scenarios.m
+- npet_ensembles_for_perturbed_scenarios.m - Generates ensemble data with NPET with the specifc pertuebed scenario of the OSE (100-km, 321 degrees) for the four specific locations selected in this study.
 
-- npet_ensembles_for_hrrr_forecasts.m 
+- npet_ensembles_for_hrrr_forecasts.m - Generates ensemble data with NPET for the simulation using HRRR data as input for the four specific locations selected in this study. 
 
 - plot_ensemble_time_series.m - Generates plots of ensemble time series for different experiments. 
 
-- Generate_NPET_maps.m
+- Generate_NPET_maps.m - Applies NPET on maps of unit streamflow for the varius scenarios covered in the study. Generates plots of NPET ensembles (percentiles) as presented in the study. See commented lines at the top of the script for some instructions. 
 
-- npet.m - 
+- npet.m - Computes NPET field for a particular unit streamflow map and NPET neighborhood generated with "simple_npet2dwdist.m". 
 
 - simple_npet2dwdist.m - Generates the bivariate weight field (NPET Neighborhood) for NPET computations. 
 
-- weigh_prctile.m - Auxiliary function to computed weighted percentiles. 
+- weigh_prctile.m - Auxiliary function to compute weighted percentiles. 

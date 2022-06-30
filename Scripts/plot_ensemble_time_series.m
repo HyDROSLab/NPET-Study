@@ -56,6 +56,7 @@ if (C2020_Data == true)
     end
 
     set(gcf, 'Position', [31, 94, 1220, 680]);
+    saveas(gcf, '../Experiment_Results/C2020_vs_NPET_analysis.fig');
     saveas(gcf, '../Experiment_Results/C2020_vs_NPET_analysis.png');
     close all;
 end
@@ -86,6 +87,7 @@ if (NPET_D_Analysis == true)
     end
     set(gcf, 'Position', [31, 94, 1220, 680]);
 
+    saveas(gcf, '../Experiment_Results/NPET_D_parameter_analysis.fig');
     saveas(gcf, '../Experiment_Results/NPET_D_parameter_analysis.png');
     close all;
 end
@@ -127,7 +129,8 @@ if (HRRR_Analysis == true)
 %         xlabel('Date/Time (UTC)', 'FontSize', 14);
     end
     set(gcf, 'Position', [1, 507, 1440, 291]);
-   
+  
+    saveas(gcf, ['../Experiment_Results/HRRR_NPET_', runMode, '_analysis.fig']); 
     saveas(gcf, ['../Experiment_Results/HRRR_NPET_', runMode, '_analysis.png']);
     close all;
 end

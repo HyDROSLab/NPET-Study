@@ -35,7 +35,6 @@ switch mode
 
         % Find exact matches
         wpctile(ismember(percentiles,cum_ordered_weights)) = ordered_X(ismember(cum_ordered_weights,percentiles));
-        
         % Compute for no matches
         for pct = percentiles(ismember(percentiles,cum_ordered_weights) == 0 & isnan(wpctile) == 1)
             antecedent_datapoint_ranks = find(diff((cum_ordered_weights-pct)./abs(cum_ordered_weights-pct)) > 0);
