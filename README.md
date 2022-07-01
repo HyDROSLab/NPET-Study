@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/505968216.svg)](https://zenodo.org/badge/latestdoi/505968216)
+
 # NPET-Study
 
 This repository hosts analysis data and programming scripts supporting the study "An Efficient Ensemble Technique for Hydrologic Forecasting driven by Quantitative Precipitation Forecasts" submitted to AMS Journal of Hydrometeorology.
